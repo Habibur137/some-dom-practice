@@ -10,18 +10,22 @@ document.getElementById('add-item-btn').addEventListener('click', function(){
         
         const tr = document.createElement('tr')
         tr.innerHTML = `
-            <th scope="row">${count}</th>
-            <td>Mark</td>
+            <th>${count}</th>
+            <td>${textField.value}</td>
             <td>
-                <button id='delete-btn' class='btn btn-danger'>Delete</button>
+                <button class='btn btn-danger delete-btn'>Delete</button>
                 <button id='done-btn' class='btn btn-success'>Done</button>
             </td>
         `
         document.getElementById('item-container').appendChild(tr)
-
-        document.getElementById('item-container').addEventListener('click', function (event){
-            console.log(event.target)
-        })
+      
+        const deleteBtn = document.getElementsByClassName('delete-btn')
+        for(const btn of deleteBtn){
+            btn.addEventListener('click', function(e){
+                e.target.parentNode.parentNode.style.display = 'none'
+            })
+        }
+            
     }
 })
 

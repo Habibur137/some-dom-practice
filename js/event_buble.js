@@ -7,6 +7,14 @@ document.getElementById('list-container').addEventListener('click', function (ev
     console.log('ul clicked')
 })
 
+// item add button 
+document.getElementById('add').addEventListener('click', function (){
+    const li = document.createElement('li');
+    li.innerText = 'brand new Item '
+    document.getElementById('list-container').appendChild(li)
+})
+
+
 const items = document.getElementsByClassName('item');
 console.log(items)
 for(const item of items){
@@ -17,6 +25,8 @@ for(const item of items){
     })
 }
 
+
+// event delegate apply
 document.getElementById('add-button').addEventListener('click', function (){
     const p = document.createElement('p');
     p.innerText = 'new Item added'
